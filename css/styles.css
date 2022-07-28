@@ -1,0 +1,365 @@
+*,
+::before,
+::after {
+	box-sizing: border-box;
+}
+
+/**********************************/
+/* 0. Variáveis
+/* 1. Estilos gerais
+/* 2. Navbar
+/* 3. Loading
+/* 4. Container
+/* 5. State Select
+/* 6. Status
+/* 7. Data Box
+/* 8. Footer
+/**********************************/
+
+/**********************************/
+/* 0. Variáveis
+/**********************************/
+
+[data-theme="light"] {
+
+/* CSS HEX */
+    --gunmetal: #022b3aff;
+    --metallic-seaweed: #1f7a8cff;
+    --beau-blue: #bfdbf7ff;
+    --lavender-web: #e1e5f2ff;
+    --white: #ffffffff;
+
+
+	--clr-background:#e1e5f2ff;
+	--clr-font:#022b3aff;
+    --clr-card:#bfdbf7ff;
+    --clr-switch-track:#AABBCC;
+    --clr-link:#3333FF;
+
+    --clr-confirmed:#D21212;
+    --clr-deaths:#223344;
+    --clr-vaccinated-1:#0000C7;
+    --clr-vaccinated-2:#117711;
+
+	--ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.2s linear;
+    --shadow-card: 5px 5px 30px 0 rgba(51, 51, 51, 20%);
+}
+
+[data-theme="dark"] {
+	--clr-background:#111111;
+	--clr-font:#F5F5F5;
+    --clr-card:#1A1A1A;
+    --clr-switch-track:#AABBCC;
+    --clr-link:#C2C2FF;
+
+    --clr-confirmed:#FF3333;
+    --clr-deaths:#AABBCC;
+    --clr-vaccinated-1:#6666DD;
+    --clr-vaccinated-2:#44BB44;
+    
+	--ff: "Cairo", sans-serif;
+    --ts-caption: 600 1.8rem/1 var(--ff);
+    --ts-normal-text: 400 1.6rem/1.4 var(--ff);
+    --ts-normal-semibold: 600 1.6rem/1.4 var(--ff);
+
+    --transition: all 0.2s linear;
+    --shadow-card: 5px 5px 30px 0 rgba(221, 221, 221, 5%);
+}
+
+
+body{
+    background-image: linear-gradient(lightblue, lightcyan);
+    font-family: var(--ff);
+    background-repeat: repeat-x;
+    color: var(--clr-font);
+    justify-content: center;
+    background-attachment: fixed;
+}
+h3{
+    font-weight: 300;
+}
+/**********************************/
+/* 1. Estilos gerais
+/**********************************/
+
+
+.inicio{
+    display: flex;
+    padding: 20px;
+    color: var(--clr-font);
+    justify-content: space-between;
+    font-size: 30px;
+    
+}
+
+.local{
+    min-height: 80%;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+
+.quadro{
+    display: grid;
+    
+    max-width: 90%;
+    min-height: 300px;
+   
+    border-radius: 1rem;
+    
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;    
+    grid-gap: 20px;
+    grid-template: "a a" "b b";
+    padding:20px;
+}
+.sem-margem{
+    margin:0;
+   padding: 0;
+    align-content: flex-end;
+    
+
+}
+.maior{
+    font-size:1.4rem;
+    text-align: center;
+}
+.menor{
+    font-size:1rem;
+    text-align: center;
+}
+
+.painel{
+    min-width: 100px;
+    min-height: 100px;
+    background-color: white;
+    box-shadow: var(--shadow-card);
+    border-radius: 0.2rem;
+    justify-content:center;
+    align-items: center;
+    color: var(--clr-font);    
+    display: flex;
+    
+
+}
+
+.clima{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info{
+    text-align: center;
+    padding: 5px;
+   
+}
+
+.icon-clima{
+    padding:20px;
+    display: flex;
+    text-align:center;
+    align-items: flex-end;
+
+}
+.txt-clima{
+    padding-left: 10px;
+}
+.space{
+    width: 50px;
+    height: 50px;
+}
+
+.temperatura{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 10px;
+
+}
+
+.temp-agora{
+    font-size: 8rem;
+    padding-right: 30px;
+}
+.temp-agora-solo{
+    font-size: 5rem;
+    padding-right: 30px;
+}
+
+.v1{
+    margin-top: 2px;
+    border-top: 1px solid var(--clr-font);
+    width: 50px;
+    padding-top: 5px;
+}
+
+.v2{
+    margin-top: 1rem;
+    border-top: 1px solid white;
+    width: 100%;
+    padding-top: 5px;
+    display: flex;
+}
+
+.min-max{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+/**********************************/
+/* 2. Navbar
+/**********************************/
+
+.proximos-dias{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 15px;
+}
+.dia{
+    width: 20%;
+    height: 100px;
+    padding: 5px;
+    margin: 5px;
+    margin-top: 30px;
+    align-content: space-between;
+    text-align: center;
+    background-image: linear-gradient(lightblue, white);
+    border-radius: 5px;
+}
+.titulo{
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 20px;
+}
+
+
+.mini-graf{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+/**********************************/
+/* 3. Loading
+/**********************************/
+
+
+.chart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    
+}
+
+.regua{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+/**********************************/
+/* 4. Container
+/**********************************/
+
+.quadro-solo{
+    padding: 10px;
+    background-color: lightcyan;
+    border-radius: 10px;
+    margin:15px;
+}
+
+.quadro-solo_menor{
+    padding: 10px;
+    background-color: lightcyan;
+    border-radius: 10px;
+    margin:7px;
+    
+}
+.status-led{
+    background-color: lightgreen;
+    opacity: .7;
+    height: 15px;
+    margin-left: 5px;
+    width: 15px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+
+.loading{
+    display: flex;
+    position: absolute;
+    background-image: linear-gradient(lightblue, lightcyan);
+    width: 100vw;
+    height: 100vh;
+    visibility: visible;
+    opacity: 1;
+    font-size: 4rem;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+
+}
+
+
+.loading_hidden{
+    visibility: hidden;
+    opacity: 0;
+
+}
+
+
+.loading_spinner{
+    animation: spin 2s infinite linear;
+}
+
+.loading_fadding{
+    animation: fadding 2s ;
+}
+@keyframes spin{
+    to{
+        
+        transform: rotate(360deg);
+      }
+}
+
+@keyframes fadding{
+    to{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/**********************************/
+/* 5. State Select
+/**********************************/
+
+
+
+/**********************************/
+/* 6. Status
+/**********************************/
+
+
+
+/**********************************/
+/* 7. Data Box
+/**********************************/
+
+
+
+/**********************************/
+/* 8. Footer
+/**********************************/
+
