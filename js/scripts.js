@@ -115,7 +115,7 @@ let graf3 =[
    type: 'line spline',
    box:{boxVisible:false},
    legend_visible: false,
-   yAxis: {visible:true},
+   yAxis: {visible:false},
     xAxis: {visible:false},
    defaultPoint_marker: { size: 3 },
    defaultAxis: {
