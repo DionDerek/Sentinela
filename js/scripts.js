@@ -20,7 +20,6 @@ function showPage() {
 
 
 
-
 function fazGet(url) {
    let request = new XMLHttpRequest()
    request.open("GET", url, false)
@@ -32,8 +31,8 @@ function fazGet(url) {
 function maini(){
 
    info = fazGet("http://dataservice.accuweather.com//forecasts/v1/daily/5day/44944?apikey=AtJ0WkGTEj2zvzvZTASsPTJXpAKJUlyH&language=pt-br&metric=true");
-   info2 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=10");
-   info3 = fazGet("http://api.openweathermap.org/data/2.5/weather?q=curitiba&units=metric&appid=75ff6405fb7b261a5d04a3e35adab3ca");
+   info2 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=50");
+   info3 = fazGet("http://api.openweathermap.org/data/2.5/weather?q=araucaria&units=metric&appid=75ff6405fb7b261a5d04a3e35adab3ca");
 
    data = JSON.parse(info);
    sensores = JSON.parse(info2);
@@ -45,16 +44,23 @@ function maini(){
    let vl_temp = sensores.feeds[8].field2;
    let TempAR = vl_temp.toString().split(".");
 
-   let vl_chuva = sensores.feeds[8].field6;
-   let vl_vento = sensores.feeds[8].field5;
-   let vl_pressao = sensores.feeds[8].field3;
-   let vl_umidAr = sensores.feeds[8].field1;
-   
+   let vl_chuva = sensores.feeds[9].field6;
+   let vl_vento = sensores.feeds[9].field5;
+   let vl_pressao = sensores.feeds[9].field3;
+   let vl_umidAr = sensores.feeds[9].field1;
+   let vl_dirVento = sensores.feeds[9].field4;   
 
 
    let vl_descri = data.DailyForecasts[0].Day.IconPhrase;
+   let vl_icon = data.DailyForecasts[0].Day.Icon;
+   let vl_iconpd1 = data.DailyForecasts[1].Day.Icon;
+   let vl_iconpd2 = data.DailyForecasts[2].Day.Icon;
+   let vl_iconpd3 = data.DailyForecasts[3].Day.Icon;
 
    let vl_tempMax = data.DailyForecasts[0].Temperature.Maximum.Value;
+   let vl_pd1 = data.DailyForecasts[1].Date;
+   let vl_pd2 = data.DailyForecasts[2].Date;
+   let vl_pd3 = data.DailyForecasts[3].Date;
    let vl_tempMin = data.DailyForecasts[0].Temperature.Minimum.Value;
    let TempMax = vl_tempMax.toString().split(".");
    let TempMin = vl_tempMin.toString().split(".");
@@ -111,7 +117,7 @@ let graf3 =[
             {x: sensores.feeds[7].entry_id, y: sensores.feeds[7].field3},
             {x: sensores.feeds[8].entry_id, y: sensores.feeds[8].field3}
          ];
-    JSC.Chart('chartDiv1', {
+    JSC.Chart('chartTemp', {
    type: 'line spline',
    box:{boxVisible:false},
    legend_visible: false,
@@ -131,7 +137,7 @@ let graf3 =[
 });
 
 
-JSC.Chart('chartDiv2', {
+JSC.Chart('chartUmid', {
    type: 'line spline',
    legend_visible: false,
    box:{boxVisible:false},
@@ -150,7 +156,7 @@ JSC.Chart('chartDiv2', {
    ]
 });
 
-JSC.Chart('chartDiv3', {
+JSC.Chart('chartPres', {
    type: 'line spline',
    legend_visible: false,
    box:{boxVisible:false},
@@ -171,13 +177,14 @@ JSC.Chart('chartDiv3', {
 
 
    document.getElementById("tx_descri").innerHTML = vl_descri;
-   document.getElementById("tx_temp").innerHTML = Temp[0] + "°";
-   document.getElementById("tx_temp-graf").innerHTML = Temp[0] + "°";
+   document.getElementById("tx_temp").innerHTML =  TempAR[0] + "°";
+   document.getElementById("tx_temp-graf").innerHTML =  TempAR[0] + "°";
    document.getElementById("tx_umidadeAr").innerHTML = vl_umidAr + " %";
    document.getElementById("tx_umid-graf").innerHTML = vl_umidAr + " %";
    document.getElementById("tx_pressao").innerHTML = vl_pressao + " hPa";
    document.getElementById("tx_pressao-graf").innerHTML = vl_pressao + " hPa";
-   document.getElementById("tx_vento").innerHTML = vl_vento + " m/s";   
+   document.getElementById("tx_vento").innerHTML = vl_vento + " m/s"; 
+   document.getElementById("tx_dirVento").innerHTML = vl_dirVento + " °";   
    document.getElementById("tx_chuva").innerHTML = vl_chuva + "mm"; 
    document.getElementById("tx_tempAr").innerHTML = TempAR[0] + "°";
    document.getElementById("tx_temp-max").innerHTML = TempMax[0] + "°";
@@ -188,16 +195,30 @@ JSC.Chart('chartDiv3', {
    document.getElementById("tx_temp-min2").innerHTML = TempMin2[0] + "°";
    document.getElementById("tx_temp-max3").innerHTML = TempMax3[0] + "°";
    document.getElementById("tx_temp-min3").innerHTML = TempMin3[0] + "°";
+   document.getElementById("pd1").innerHTML = vl_pd1.slice(8,10)+"/"+vl_pd1.slice(5,7);
+   document.getElementById("pd2").innerHTML = vl_pd2.slice(8,10)+"/"+vl_pd2.slice(5,7);
+   document.getElementById("pd3").innerHTML = vl_pd3.slice(8,10)+"/"+vl_pd3.slice(5,7);
+
+
+
+   let img = document.getElementById("icon");
+   img.src = "imagens/" + vl_icon + ".png";
+   let imgpd1 = document.getElementById("icon_pd1");
+   imgpd1.src = "imagens/" + vl_iconpd1 + ".png";
+   let imgpd2 = document.getElementById("icon_pd2");
+   imgpd2.src = "imagens/" + vl_iconpd2 + ".png";
+   let imgpd3 = document.getElementById("icon_pd3");
+   imgpd3.src = "imagens/" + vl_iconpd3 + ".png";
 
 
 
 
 
    
-
+console.log(vl_iconpd3);
    
 
-   console.log(graf1);
+   
    
 
 
@@ -205,3 +226,243 @@ JSC.Chart('chartDiv3', {
 
 
 maini()
+
+
+
+
+JSC.Chart('chartDiv-solo-sol', {
+  box:{boxVisible:false},
+   type: 'area spline',
+   legend_visible: false,
+   yAxis: {visible:false},
+    xAxis: {visible:false},
+
+   defaultPoint_marker: { size: 3 },
+   defaultAxis: {
+    defaultTick_gridLine_visible: false,
+    alternateGridFill: "none"
+  },
+   series: [
+
+      {
+         points: [
+            {x: '05:00', y: null},
+            {x: '06:00', y: null},
+            {x: '07:00', y: null},
+            {x: '08:00', y: null},
+            {x: '09:00', y: null},
+            {x: '10:00', y: null},
+            {x: '11:00', y: null},
+            {x: '12:00', y: null},
+            {x: '13:00', y: null},
+            {x: '14:00', y: null},
+            {x: '15:00', y: null},
+            {x: '16:00', y: null},
+            {x: '17:00', y: null},
+            {x: '18:00', y: null},
+            {x: '19:00', y: null}
+         ]
+      }
+   ]
+});
+
+// JS
+      
+      var value2 = Math.round(Math.random() * 10);
+      
+      var green = '#1ec079',
+        red = '#ff5c57',
+        yellow = '#ffc531';
+      var colorMarkers = {
+        'G-Y-R': [
+          { value: [0, 3], color: green, opacity: 1 },
+          { value: [3, 7], color: yellow, opacity: 1 },
+          { value: [7, 11], color: red, opacity: 1 }
+        ]
+      };
+
+      var chart = JSC.chart('chartDiv-solo-uv', {
+        debug: true,
+        box:{boxVisible:false},
+        legend_visible: false,
+        chartArea_boxVisible: false,
+        xAxis: { scale: { range: [0, 1] } },
+        defaultAxis: {
+          defaultTick: {
+            line: { visible: false },
+            label_visible: false
+          }
+        },
+        yAxis: [
+
+          {
+            id: 'y2',
+            scale_range: [0, 11],
+            defaultTick_line_length: 20,
+            markers: colorMarkers['G-Y-R']
+          },
+      
+        ],
+        defaultSeries: {
+          type: 'gauge',
+          opacity: 1,
+          defaultPoint: { marker_color: 'black' },
+          mouseTracking_enabled: false,
+          shape: {
+            fill: 'none',
+            outline: { width: 0 },
+            label: {
+              text: 'médio',
+              style_fontSize: 20,
+              align: 'center',
+              verticalAlign: 'bottom'
+            }
+          }
+        },
+        series: [
+
+          {
+            yAxis: 'y2',
+            points: [{ y: 5 }]
+          },
+ 
+        ]
+      });
+
+
+       var chart = JSC.chart('chartDiv-solo-umid', {
+        box:{boxVisible:false},
+        defaultSeries_type: 'gaugeLinearHorizontal',
+        legend_visible: false,
+        title: {
+          visible:false,
+        },
+        xAxis: { spacingPercentage: 0.2 },
+        yAxis: { scale_range: [0, 100] },
+        defaultSeries_shape: { label: { visible:false} },
+        defaultPoint_label_visible: true,
+        series: [
+          {
+            type: 'column aqua',
+            name: 'Umidade do solo',
+            points: [['B', 37]]
+          },
+
+        ]
+      });
+
+       JSC.Chart('chartDiv1', {
+   type: 'line spline',
+   box:{boxVisible:false},
+   legend_visible: false,
+   yAxis: {visible:false},
+    xAxis: {visible:false},
+   defaultPoint_marker: { size: 3 },
+   defaultAxis: {
+    defaultTick_gridLine_visible: false,
+    alternateGridFill: "none"
+  },
+   series: [
+
+      {
+         points: [
+            {x: '12:00', y: null},
+            {x: '13:00', y: null},
+            {x: '14:00', y: null},
+            {x: '15:00', y: null},
+            {x: '16:00', y: null},
+            {x: '17:00', y: null},
+            {x: '18:00', y: null},
+            {x: '19:00', y: null},
+            {x: '20:00', y: null}
+         ]
+      }
+   ]
+});
+
+JSC.Chart('chartDiv2', {
+   type: 'line spline',
+   legend_visible: false,
+   box:{boxVisible:false},
+   yAxis: {visible:false},
+    xAxis: {visible:false},
+   defaultPoint_marker: { size: 3 },
+   defaultAxis: {
+    defaultTick_gridLine_visible: false,
+    alternateGridFill: "none"
+  },
+   series: [
+
+      {
+         points: [
+            {x: '12:00', y: null},
+            {x: '13:00', y: null},
+            {x: '14:00', y: null},
+            {x: '15:00', y: null},
+            {x: '16:00', y: null},
+            {x: '17:00', y: null},
+            {x: '18:00', y: null},
+            {x: '19:00', y: null},
+            {x: '20:00', y: null}
+         ]
+      }
+   ]
+});
+
+JSC.Chart('chartDiv3', {
+   type: 'line spline',
+   legend_visible: false,
+   box:{boxVisible:false},
+   yAxis: {visible:false},
+    xAxis: {visible:false},
+   defaultPoint_marker: { size: 3 },
+   defaultAxis: {
+    defaultTick_gridLine_visible: false,
+    alternateGridFill: "none"
+  },
+   series: [
+
+      {
+         points: [
+            {x: '12:00', y: 18},
+            {x: '13:00', y: 18},
+            {x: '14:00', y: 19},
+            {x: '15:00', y: 19},
+            {x: '16:00', y: 18},
+            {x: '17:00', y: 21},
+            {x: '18:00', y: 21},
+            {x: '19:00', y: 22},
+            {x: '20:00', y: 24}
+         ]
+      }
+   ]
+});
+
+JSC.Chart('chartDiv4', {
+   type: 'line spline',
+   box:{boxVisible:false},
+   legend_visible: false,
+   yAxis: {visible:false},
+    xAxis: {visible:false},
+   defaultPoint_marker: { size: 3 },
+   defaultAxis: {
+    defaultTick_gridLine_visible: false,
+    alternateGridFill: "none"
+  },
+   series: [
+
+      {
+         points: [
+            {x: '12:00', y: 18},
+            {x: '13:00', y: 18},
+            {x: '14:00', y: 19},
+            {x: '15:00', y: 19},
+            {x: '16:00', y: 18},
+            {x: '17:00', y: 21},
+            {x: '18:00', y: 21},
+            {x: '19:00', y: 22},
+            {x: '20:00', y: 24}
+         ]
+      }
+   ]
+});
