@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="light">
 <head>
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,14 +17,15 @@
 
 
     <div class="loading" id="loader">
+        <img src="imagens/logogayer.png">
         <i class="fas fa-spinner loading_spinner"></i>
     </div>
 
     <div class="inicio">
         <i class="fas fa-bars"></i>
         <div class="local">
-            <h3>Curitiba - PR</h3>
-            <h1>qua, 13:15</h1>
+            <h3>Araucária - PR</h3>
+            <h1>Fruticultura Gayer</h1>
         </div>
         <i class="fas fa-plus"></i>
     </div>
@@ -34,7 +34,7 @@
     <div class="clima">
         
         <div class="icon-clima" >
-        <img src="sol.png" style="width:20%">
+        <img id="icon" style="width:20%" >
         <h1 class="txt-clima" id="tx_descri"></h1>
         </div>
     </div>
@@ -58,24 +58,24 @@
 <section class="proximos-dias">
    
     <div class="dia">
-        <h1> SEX</h1>
-        <img src="sol.png" style="width:20px">
+        <h1 id="pd1"></h1>
+        <img id="icon_pd1" style="width:35px">
         
         <h1 id="tx_temp-max1"></h1>
         <h1 id="tx_temp-min1"></h1>
 
     </div>
     <div class="dia">
-        <h1> SAB</h1>
-        <img src="sol.png" style="width:20px">
+        <h1 id="pd2"></h1>
+        <img id="icon_pd2" style="width:35px">
         
         <h1 id="tx_temp-max2"></h1>
         <h1 id="tx_temp-min2"></h1>
 
     </div>
     <div class="dia">
-        <h1> DOM</h1>
-        <img src="sol.png" style="width:20px">
+        <h1 id="pd3"></h1>
+        <img id="icon_pd3" style="width:35px">
         
         <h1 id="tx_temp-max3"></h1>
         <h1 id="tx_temp-min3"></h1>
@@ -130,14 +130,14 @@
         </section>
                 <section class="painel">
             <div class="info">
-            <img src="drop.png" style="width: 20px">
+            <img src="imagens/drop.png" style="width: 20px">
                         <h1>Umidade AR</h1>
             <h3 id="tx_umidadeAr">60 %</h3>
             </div>
         </section>
                 <section class="painel">
             <div class="info">
-            <i class="fas fa-temperature"></i>
+            <i class="fas fa-temperature-half"></i>
                         <h1>temp. do AR</h1>
             <h3 id="tx_tempAr">16° C</h3>
             </div>
@@ -150,13 +150,13 @@
 
 <div class="titulo">
     <h2>graficos</h2>
-    <h1>ultimas 24 hrs</h1>
+    
 
     
 </div>
 
 <section class="mini-graf">
-<div id="chartDiv1" style="width:70%; height:100px; margin:0 auto;"></div>
+<div id="chartTemp" style="width:70%; height:100px; margin:0 auto;"></div>
 <div class="min-max">
     <span class="rotulo">temp.</span>
     <h1 id="tx_temp-graf"></h1>
@@ -164,14 +164,14 @@
 </section>
 
 <section class="mini-graf">
-<div id="chartDiv2" style="width:70%; height:100px; margin:0 auto;"></div>
+<div id="chartUmid" style="width:70%; height:100px; margin:0 auto;"></div>
 <div class="min-max">
     <span class="rotulo">humid.</span>
     <h1 id="tx_umid-graf"></h1>
 </div>
 </section>
 <section class="mini-graf">
-<div id="chartDiv3" style="width:70%; height:100px; margin:0 auto;"></div>
+<div id="chartPres" style="width:70%; height:100px; margin:0 auto;"></div>
 <div class="min-max">
     <span class="rotulo">p. ATM</span>
     <h1 id="tx_pressao-graf"></h1>
@@ -180,6 +180,111 @@
 
 
 <div class="space"></div>
+
+<div class="info-solo">
+    <h2 class="titulo">Sentinela Solo: #001.22 </h2>
+    <div style="display: flex;">
+    <h1 style="margin-left: 30px; margin-right: 10px; font-weight: 700;">data de instalação: </h1>
+    <h1>30/07/2022</h1>
+        
+    </div>
+    <div style="display: flex; align-items: center; margin-top: 10px;">
+    <h1 style="margin-left: 30px; margin-right: 10px; font-weight: 700">status: </h1>
+    <h1>ativo</h1>
+    <div class="status-led"></div>
+
+    </div>
+
+
+</div>
+
+
+
+<div class="v2"></div>
+
+<div class="quadro-solo">
+    
+
+
+<h2 class="titulo maior">Incidencia Solar</h2>
+    
+
+    <div class="chart">
+
+        <div id="chartDiv-solo-sol" style="width: 90%; height: 100px;">
+            
+        </div>
+
+  
+    
+
+    </div>
+    <div class="regua">
+        
+    <span>05:00</span>
+    <span>12:00</span>
+    <span>19:00</span>
+    </div>
+</div>
+
+
+    <div class="proximos-dias">
+        
+        
+        <div class="quadro-solo_menor">
+            <h1 class="titulo">Indice rad UV</h1>
+        <div id="chartDiv-solo-uv" style="width: 160px; height: 160px;"></div>
+        </div>
+
+        <div class="quadro-solo_menor">
+            <h1 class="titulo">temp. do solo</h1>
+        <h3 class="temp-agora-solo">14°</h3>
+        </div>
+    </div>
+
+<div class="quadro-solo">
+    
+    <div class="titulo maior">
+        <h1>Umidade do Solo</h1>
+    </div>
+        <div class="chart">
+        <div id="chartDiv-solo-umid" style="width: 90%; height: 100px;"></div>
+    </div>
+</div>
+    <div class="v2"></div>
+
+
+
+<section class="mini-graf">
+<div id="chartDiv1" style="width:70%; height:100px; margin:0 auto;"></div>
+<div class="min-max">
+    <h1 class="txt-clima menor">Umid.</h1>
+    <h1>25%</h1>
+</div>
+</section>
+<section class="mini-graf">
+<div id="chartDiv2" style="width:70%; height:100px; margin:0 auto;"></div>
+<div class="min-max">
+    <h1 class="txt-clima menor">Temp.</h1>
+    <h1>25%</h1>
+</div>
+</section>
+<section class="mini-graf">
+<div id="chartDiv3" style="width:70%; height:100px; margin:0 auto;"></div>
+<div class="min-max"> 
+    <h1 class="txt-clima menor">Cond. elet.</h1>
+    <h1>25%</h1>
+</div>
+</section>
+<section class="mini-graf">
+<div id="chartDiv4" style="width:70%; height:100px; margin:0 auto;"></div>
+<div class="min-max">
+    <h1 class="txt-clima menor">Inc. Solar</h1>
+    <h1>25%</h1>
+</div>
+</section>
+
+
 
 
     <script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
