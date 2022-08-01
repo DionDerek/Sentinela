@@ -41,14 +41,14 @@ function maini(){
    let temperatura = tempo.main.temp;
    let Temp = temperatura.toString().split(".");
 
-   let vl_temp = sensores.feeds[8].field2;
+   let vl_temp = sensores.feeds[49].field2;
    let TempAR = vl_temp.toString().split(".");
 
-   let vl_chuva = sensores.feeds[9].field6;
-   let vl_vento = sensores.feeds[9].field5;
-   let vl_pressao = sensores.feeds[9].field3;
-   let vl_umidAr = sensores.feeds[9].field1;
-   let vl_dirVento = sensores.feeds[9].field4;   
+   let vl_chuva = sensores.feeds[49].field6;
+   let vl_vento = sensores.feeds[49].field5;
+   let vl_pressao = sensores.feeds[49].field3;
+   let vl_umidAr = sensores.feeds[49].field1;
+   let vl_dirVento = sensores.feeds[49].field4;   
 
 
    let vl_descri = data.DailyForecasts[0].Day.IconPhrase;
@@ -83,39 +83,39 @@ function maini(){
 
 let graf1 =[
             {x: sensores.feeds[0].entry_id, y: sensores.feeds[0].field2},
-            {x: sensores.feeds[1].entry_id, y: sensores.feeds[1].field2},
-            {x: sensores.feeds[2].entry_id, y: sensores.feeds[2].field2},
-            {x: sensores.feeds[3].entry_id, y: sensores.feeds[3].field2},
-            {x: sensores.feeds[4].entry_id, y: sensores.feeds[4].field2},
             {x: sensores.feeds[5].entry_id, y: sensores.feeds[5].field2},
-            {x: sensores.feeds[6].entry_id, y: sensores.feeds[6].field2},
-            {x: sensores.feeds[7].entry_id, y: sensores.feeds[7].field2},
-            {x: sensores.feeds[8].entry_id, y: sensores.feeds[8].field2}
+            {x: sensores.feeds[10].entry_id, y: sensores.feeds[10].field2},
+            {x: sensores.feeds[15].entry_id, y: sensores.feeds[15].field2},
+            {x: sensores.feeds[20].entry_id, y: sensores.feeds[20].field2},
+            {x: sensores.feeds[25].entry_id, y: sensores.feeds[25].field2},
+            {x: sensores.feeds[30].entry_id, y: sensores.feeds[30].field2},
+            {x: sensores.feeds[35].entry_id, y: sensores.feeds[35].field2},
+            {x: sensores.feeds[49].entry_id, y: sensores.feeds[49].field2}
          ];
 
  let graf2 =[
             {x: sensores.feeds[0].entry_id, y: sensores.feeds[0].field1},
-            {x: sensores.feeds[1].entry_id, y: sensores.feeds[1].field1},
-            {x: sensores.feeds[2].entry_id, y: sensores.feeds[2].field1},
-            {x: sensores.feeds[3].entry_id, y: sensores.feeds[3].field1},
-            {x: sensores.feeds[4].entry_id, y: sensores.feeds[4].field1},
             {x: sensores.feeds[5].entry_id, y: sensores.feeds[5].field1},
-            {x: sensores.feeds[6].entry_id, y: sensores.feeds[6].field1},
-            {x: sensores.feeds[7].entry_id, y: sensores.feeds[7].field1},
-            {x: sensores.feeds[8].entry_id, y: sensores.feeds[8].field1}
+            {x: sensores.feeds[10].entry_id, y: sensores.feeds[10].field1},
+            {x: sensores.feeds[15].entry_id, y: sensores.feeds[15].field1},
+            {x: sensores.feeds[20].entry_id, y: sensores.feeds[20].field1},
+            {x: sensores.feeds[25].entry_id, y: sensores.feeds[25].field1},
+            {x: sensores.feeds[30].entry_id, y: sensores.feeds[30].field1},
+            {x: sensores.feeds[35].entry_id, y: sensores.feeds[35].field1},
+            {x: sensores.feeds[49].entry_id, y: sensores.feeds[49].field1}
          ];        
 
 
 let graf3 =[
             {x: sensores.feeds[0].entry_id, y: sensores.feeds[0].field3},
-            {x: sensores.feeds[1].entry_id, y: sensores.feeds[1].field3},
-            {x: sensores.feeds[2].entry_id, y: sensores.feeds[2].field3},
-            {x: sensores.feeds[3].entry_id, y: sensores.feeds[3].field3},
-            {x: sensores.feeds[4].entry_id, y: sensores.feeds[4].field3},
             {x: sensores.feeds[5].entry_id, y: sensores.feeds[5].field3},
-            {x: sensores.feeds[6].entry_id, y: sensores.feeds[6].field3},
-            {x: sensores.feeds[7].entry_id, y: sensores.feeds[7].field3},
-            {x: sensores.feeds[8].entry_id, y: sensores.feeds[8].field3}
+            {x: sensores.feeds[10].entry_id, y: sensores.feeds[10].field3},
+            {x: sensores.feeds[15].entry_id, y: sensores.feeds[15].field3},
+            {x: sensores.feeds[20].entry_id, y: sensores.feeds[20].field3},
+            {x: sensores.feeds[25].entry_id, y: sensores.feeds[25].field3},
+            {x: sensores.feeds[30].entry_id, y: sensores.feeds[30].field3},
+            {x: sensores.feeds[35].entry_id, y: sensores.feeds[35].field3},
+            {x: sensores.feeds[49].entry_id, y: sensores.feeds[49].field3}
          ];
     JSC.Chart('chartTemp', {
    type: 'line spline',
@@ -366,7 +366,7 @@ JSC.Chart('chartDiv-solo-sol', {
 
       {
          points: [
-            {x: '12:00', y: 0},
+            {x: '12:00', y: null},
             {x: '13:00', y: null},
             {x: '14:00', y: null},
             {x: '15:00', y: null},
@@ -395,7 +395,7 @@ JSC.Chart('chartDiv2', {
 
       {
          points: [
-            {x: '12:00', y: 0},
+            {x: '12:00', y: null},
             {x: '13:00', y: null},
             {x: '14:00', y: null},
             {x: '15:00', y: null},
@@ -424,15 +424,15 @@ JSC.Chart('chartDiv3', {
 
       {
          points: [
-            {x: '12:00', y: 0},
-            {x: '13:00', y: null},
-            {x: '14:00', y: null},
-            {x: '15:00', y: null},
-            {x: '16:00', y: null},
-            {x: '17:00', y: null},
-            {x: '18:00', y: null},
-            {x: '19:00', y: null},
-            {x: '20:00', y: null}
+            {x: '12:00', y: 18},
+            {x: '13:00', y: 18},
+            {x: '14:00', y: 19},
+            {x: '15:00', y: 19},
+            {x: '16:00', y: 18},
+            {x: '17:00', y: 21},
+            {x: '18:00', y: 21},
+            {x: '19:00', y: 22},
+            {x: '20:00', y: 24}
          ]
       }
    ]
@@ -453,15 +453,15 @@ JSC.Chart('chartDiv4', {
 
       {
          points: [
-            {x: '12:00', y: 0},
-            {x: '13:00', y: null},
-            {x: '14:00', y: null},
-            {x: '15:00', y: null},
-            {x: '16:00', y: null},
-            {x: '17:00', y: null},
-            {x: '18:00', y: null},
-            {x: '19:00', y: null},
-            {x: '20:00', y: null}
+            {x: '12:00', y: 18},
+            {x: '13:00', y: 18},
+            {x: '14:00', y: 19},
+            {x: '15:00', y: 19},
+            {x: '16:00', y: 18},
+            {x: '17:00', y: 21},
+            {x: '18:00', y: 21},
+            {x: '19:00', y: 22},
+            {x: '20:00', y: 24}
          ]
       }
    ]
