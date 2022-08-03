@@ -62,7 +62,8 @@ function maini(){
 
    let vl_descriDia = data.DailyForecasts[0].Day.IconPhrase;
    let vl_descriNoite = data.DailyForecasts[0].Night.IconPhrase;
-   let vl_icon = data.DailyForecasts[0].Day.Icon;
+   let vl_iconDia = data.DailyForecasts[0].Day.Icon;
+  let vl_iconNoite = data.DailyForecasts[0].Night.Icon;
    let vl_iconpd1 = data.DailyForecasts[1].Day.Icon;
    let vl_iconpd2 = data.DailyForecasts[2].Day.Icon;
    let vl_iconpd3 = data.DailyForecasts[3].Day.Icon;
@@ -185,11 +186,16 @@ JSC.Chart('chartPres', {
    ]
 });
 
-if (hour<18){
+if (hour < 18) {
+     let img = document.getElementById("icon");
+   img.src = "imagens/" + vl_iconDia + ".png";
    document.getElementById("tx_descri").innerHTML = vl_descriDia;
-}else{
+ }else{
+     let img = document.getElementById("icon");
+   img.src = "imagens/" + vl_iconNoite + ".png";
   document.getElementById("tx_descri").innerHTML = vl_descriNoite;
-}
+ }
+
   
   if(vl_dirVento < 22 ){
   document.getElementById("tx_dirVento").innerHTML = "N";
