@@ -190,6 +190,29 @@ if (hour<18){
 }else{
   document.getElementById("tx_descri").innerHTML = vl_descriNoite;
 }
+  
+  if(vl_dirVento < 22 ){
+  document.getElementById("tx_dirVento").innerHTML = "N";
+} else if(vl_dirVento < 67){
+  document.getElementById("tx_dirVento").innerHTML = "NE";
+}else if(vl_dirVento< 112){
+  document.getElementById("tx_dirVento").innerHTML = "L";
+}else if(vl_dirVento< 157){
+  document.getElementById("tx_dirVento").innerHTML = "SE";
+}else if(vl_dirVento< 202){
+  document.getElementById("tx_dirVento").innerHTML = "S";
+}else if(vl_dirVento< 247){
+  document.getElementById("tx_dirVento").innerHTML = "SO";
+}else if(vl_dirVento< 292){
+  document.getElementById("tx_dirVento").innerHTML = "O";
+}else if(vl_dirVento< 337){
+  document.getElementById("tx_dirVento").innerHTML = "NO";
+}else if(vl_dirVento< 360){
+  document.getElementById("tx_dirVento").innerHTML = "N";
+}
+  
+  
+  
    document.getElementById("tx_temp").innerHTML =  TempAR[0] + "°";
    document.getElementById("tx_temp-graf").innerHTML =  TempAR[0] + "°";
    document.getElementById("tx_umidadeAr").innerHTML = vl_umidAr + " %";
@@ -197,7 +220,7 @@ if (hour<18){
    document.getElementById("tx_pressao").innerHTML = vl_pressao + " hPa";
    document.getElementById("tx_pressao-graf").innerHTML = vl_pressao + " hPa";
    document.getElementById("tx_vento").innerHTML = vl_vento + " m/s"; 
-   document.getElementById("tx_dirVento").innerHTML = vl_dirVento + " °";   
+      
    document.getElementById("tx_chuva").innerHTML = vl_chuva + "mm"; 
    document.getElementById("tx_tempAr").innerHTML = TempAR[0] + "°";
    document.getElementById("tx_temp-max").innerHTML = TempMax[0] + "°";
