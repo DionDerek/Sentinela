@@ -29,7 +29,16 @@ function fazGet(url) {
 
 
 function maini(){
-
+  
+  
+  const d = new Date();
+  let hour = d.getHours();
+  let minutes= d.getMinutes()
+  
+  
+  
+  
+  
    info = fazGet("http://dataservice.accuweather.com//forecasts/v1/daily/5day/44944?apikey=AtJ0WkGTEj2zvzvZTASsPTJXpAKJUlyH&language=pt-br&metric=true");
    info2 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=50");
    info3 = fazGet("http://api.openweathermap.org/data/2.5/weather?q=araucaria&units=metric&appid=75ff6405fb7b261a5d04a3e35adab3ca");
@@ -51,7 +60,8 @@ function maini(){
    let vl_dirVento = sensores.feeds[49].field4;   
 
 
-   let vl_descri = data.DailyForecasts[0].Day.IconPhrase;
+   let vl_descriDia = data.DailyForecasts[0].Day.IconPhrase;
+   let vl_descriNoite = data.DailyForecasts[0].Night.IconPhrase;
    let vl_icon = data.DailyForecasts[0].Day.Icon;
    let vl_iconpd1 = data.DailyForecasts[1].Day.Icon;
    let vl_iconpd2 = data.DailyForecasts[2].Day.Icon;
@@ -175,8 +185,11 @@ JSC.Chart('chartPres', {
    ]
 });
 
-
-   document.getElementById("tx_descri").innerHTML = vl_descri;
+if (hour<18){
+   document.getElementById("tx_descri").innerHTML = vl_descriDia;
+}else{
+  document.getElementById("tx_descri").innerHTML = vl_descriNoite;
+}
    document.getElementById("tx_temp").innerHTML =  TempAR[0] + "°";
    document.getElementById("tx_temp-graf").innerHTML =  TempAR[0] + "°";
    document.getElementById("tx_umidadeAr").innerHTML = vl_umidAr + " %";
