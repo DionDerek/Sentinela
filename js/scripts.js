@@ -243,8 +243,7 @@ if (hour < 18) {
 
 
 
-   let img = document.getElementById("icon");
-   img.src = "imagens/" + vl_icon + ".png";
+
    let imgpd1 = document.getElementById("icon_pd1");
    imgpd1.src = "imagens/" + vl_iconpd1 + ".png";
    let imgpd2 = document.getElementById("icon_pd2");
