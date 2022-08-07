@@ -4,21 +4,7 @@
 	box-sizing: border-box;
 }
 
-/**********************************/
-/* 0. Variáveis
-/* 1. Estilos gerais
-/* 2. Navbar
-/* 3. Loading
-/* 4. Container
-/* 5. State Select
-/* 6. Status
-/* 7. Data Box
-/* 8. Footer
-/**********************************/
 
-/**********************************/
-/* 0. Variáveis
-/**********************************/
 
 [data-theme="light"] {
 
@@ -30,7 +16,7 @@
     --white: #ffffffff;
 
 
-	--clr-background:#e1e5f2ff;
+	--clr-background: linear-gradient(lightblue, lightcyan);
 	--clr-font:#022b3aff;
     --clr-card:#bfdbf7ff;
     --clr-switch-track:#AABBCC;
@@ -51,7 +37,7 @@
 }
 
 [data-theme="dark"] {
-	--clr-background:#111111;
+	--clr-background:linear-gradient(DarkSlateGray, LightSlateGray);
 	--clr-font:#F5F5F5;
     --clr-card:#1A1A1A;
     --clr-switch-track:#AABBCC;
@@ -73,7 +59,7 @@
 
 
 body{
-    background-image: linear-gradient(lightblue, lightcyan);
+    background-image: var(--clr-background);
     font-family: var(--ff);
     background-repeat: repeat-x;
     color: var(--clr-font);
@@ -82,6 +68,13 @@ body{
 }
 h3{
     font-weight: 300;
+}
+table, th, td {
+  border-bottom: 1px solid #ddd;
+  padding: 5px;
+  text-align: center;
+  font-size:0.8rem;
+ 
 }
 /**********************************/
 /* 1. Estilos gerais
@@ -139,7 +132,7 @@ h3{
 .painel{
     min-width: 100px;
     min-height: 100px;
-    background-color: white;
+    background-image: var(--clr-background);
     box-shadow: var(--shadow-card);
     border-radius: 0.2rem;
     justify-content:center;
@@ -233,7 +226,7 @@ h3{
     margin-top: 30px;
     align-content: space-between;
     text-align: center;
-    background-image: linear-gradient(lightblue, white);
+    background-image: var(--clr-background);
     border-radius: 5px;
 }
 .titulo{
@@ -275,27 +268,19 @@ h3{
 
 .quadro-solo{
     padding: 10px;
-    background-color: lightcyan;
+    background-image: var(--clr-background);
     border-radius: 10px;
     margin:15px;
 }
 
 .quadro-solo_menor{
     padding: 10px;
-    background-color: lightcyan;
+    ackground-image: var(--clr-background);
     border-radius: 10px;
     margin:7px;
     
 }
-.status-led{
-    background-color: lightgreen;
-    opacity: .7;
-    height: 15px;
-    margin-left: 5px;
-    width: 15px;
-    border: 2px solid black;
-    border-radius: 10px;
-}
+
 
 
 .loading{
@@ -347,8 +332,31 @@ h3{
 /* 5. State Select
 /**********************************/
 
+.cab{
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.tabela{
+    display: flex;
+    background-image:var(--clr-background);
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    visibility: hidden;
+    width: 100%;
+    flex-direction: column;
+}
 
 
+.mapa{
+    display: flex;
+        align-items: center;
+    justify-content: center;
+    align-content: center;
+}
 /**********************************/
 /* 6. Status
 /**********************************/
