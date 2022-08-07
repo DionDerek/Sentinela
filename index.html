@@ -22,6 +22,22 @@
         <i class="fas fa-spinner loading_spinner"></i>
     </div>
 
+    <div class="tabela" id="tab">
+<button id="demo" onclick="fechar()">voltar</button>
+
+         <table id="tabela">
+        <tr>
+    <th>dia</th>
+    <th>Hora</th>
+    <th>temp</th>
+    <th>p ATM</th>
+    <th>umid AR</th>
+    <th>chuva</th>
+  </tr>
+    </table>
+    </div>
+
+
     <div class="inicio">
         <i class="fas fa-bars"></i>
         <div class="local">
@@ -88,13 +104,16 @@
 </section>
 
 <div class="v2"></div>
-
+<div class="cab">
+    
 <div class="titulo">
     <h2>Estação meteorológica</h2>
     <h1>n° 0001</h1>
     <span id="tx_att"></span>
 </div>
+<button type="button" id="bt_relatorio" onclick="mostrarTab()">Relatório</button>
 
+</div>
 	
 
     <div class="quadro">
@@ -192,7 +211,7 @@
     <div style="display: flex; align-items: center; margin-top: 10px;">
     <h1 style="margin-left: 30px; margin-right: 10px; font-weight: 700">status: </h1>
     <h1>ativo</h1>
-    <div class="status-led"></div>
+    
 
     </div>
 
@@ -202,6 +221,11 @@
 
 
 <div class="v2"></div>
+
+ <div class="mapa">
+    <img src="imagens/map.png">
+     
+ </div>
 
 <div class="quadro-solo">
     
@@ -256,7 +280,7 @@
 
 
 
-<section class="mini-graf">
+<!-- <section class="mini-graf">
 <div id="chartDiv1" style="width:70%; height:100px; margin:0 auto;"></div>
 <div class="min-max">
     <h1 class="txt-clima menor">Umid.</h1>
@@ -281,9 +305,11 @@
 <div id="chartDiv4" style="width:70%; height:100px; margin:0 auto;"></div>
 <div class="min-max">
     <h1 class="txt-clima menor">Inc. Solar</h1>
-    <h1>--25%</h1>
+    <h1>--</h1>
 </div>
 </section>
+ -->
+
 
 
 
