@@ -45,7 +45,7 @@ function mostrarTab() {
   document.getElementById("chartDiv2").style.visibility = "hidden";
   document.getElementById("chartDiv3").style.visibility = "hidden";
   document.getElementById("chartDiv4").style.visibility = "hidden";
-  document.getElementById("chartDiv-solo-umid").style.visibility = "hidden"
+  document.getElementById("chartDiv-solo-umid").style.visibility = "hidden";
   document.getElementById("chartDiv-solo-uv").style.visibility = "hidden";
   document.getElementById("chartDiv-solo-sol").style.visibility = "hidden";
 
