@@ -87,7 +87,7 @@ function crialinha(sensores){
   tdTemp.innerHTML = sensores.field2+" ºC";
   tdPress.innerHTML = sensores.field3;
   tdUmid.innerHTML = sensores.field1+" %";
-  tdChuva.innerHTML = sensores.field6=" mm";
+  tdChuva.innerHTML = sensores.field6+" mm";
 
 
   linha.appendChild(tdId);
@@ -114,12 +114,13 @@ function maini(){
   
    info = fazGet("http://dataservice.accuweather.com//forecasts/v1/daily/5day/44944?apikey=AtJ0WkGTEj2zvzvZTASsPTJXpAKJUlyH&language=pt-br&metric=true");
    info2 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=50");
-   info2 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=300");
+   info4 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=300");
    info3 = fazGet("http://api.openweathermap.org/data/2.5/weather?q=araucaria&units=metric&appid=75ff6405fb7b261a5d04a3e35adab3ca");
 
    data = JSON.parse(info);
    sensores = JSON.parse(info2);
    tempo = JSON.parse(info3);
+  sensoresTab = JSON.parse(info4);
 
 
 
@@ -127,7 +128,7 @@ function maini(){
 let tabela = document.getElementById("tabela");
 console.log(sensores.feeds[0]);
 
-  sensores.feeds.reverse().forEach(element =>{
+  sensoresTab.feeds.reverse().forEach(element =>{
     let linha =crialinha(element);
     tabela.appendChild(linha);
 
