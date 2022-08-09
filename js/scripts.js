@@ -180,40 +180,41 @@ console.log(sensores.feeds[0]);
 
 
 let graf1 =[
-            {x: sensores.feeds[0].entry_id, y: sensores.feeds[0].field2},
-            {x: sensores.feeds[5].entry_id, y: sensores.feeds[5].field2},
-            {x: sensores.feeds[10].entry_id, y: sensores.feeds[10].field2},
-            {x: sensores.feeds[15].entry_id, y: sensores.feeds[15].field2},
-            {x: sensores.feeds[20].entry_id, y: sensores.feeds[20].field2},
-            {x: sensores.feeds[25].entry_id, y: sensores.feeds[25].field2},
-            {x: sensores.feeds[30].entry_id, y: sensores.feeds[30].field2},
-            {x: sensores.feeds[35].entry_id, y: sensores.feeds[35].field2},
-            {x: sensores.feeds[49].entry_id, y: sensores.feeds[49].field2}
+            {x: sensores.feeds[5].entry_id, y: parseFloat(sensores.feeds[5].field2)},
+            {x: sensores.feeds[10].entry_id, y: parseFloat(sensores.feeds[10].field2)},
+            {x: sensores.feeds[15].entry_id, y: parseFloat(sensores.feeds[15].field2)},
+            {x: sensores.feeds[20].entry_id, y: parseFloat(sensores.feeds[20].field2)},
+            {x: sensores.feeds[25].entry_id, y: parseFloat(sensores.feeds[25].field2)},
+            {x: sensores.feeds[30].entry_id, y: parseFloat(sensores.feeds[30].field2)},
+            {x: sensores.feeds[35].entry_id, y: parseFloat(sensores.feeds[35].field2)},
+            {x: sensores.feeds[40].entry_id, y: parseFloat(sensores.feeds[40].field2)},
+            {x: sensores.feeds[49].entry_id, y: parseFloat(sensores.feeds[49].field2)}
          ];
 
  let graf2 =[
-            {x: sensores.feeds[0].entry_id, y: sensores.feeds[0].field1},
-            {x: sensores.feeds[5].entry_id, y: sensores.feeds[5].field1},
-            {x: sensores.feeds[10].entry_id, y: sensores.feeds[10].field1},
-            {x: sensores.feeds[15].entry_id, y: sensores.feeds[15].field1},
-            {x: sensores.feeds[20].entry_id, y: sensores.feeds[20].field1},
-            {x: sensores.feeds[25].entry_id, y: sensores.feeds[25].field1},
-            {x: sensores.feeds[30].entry_id, y: sensores.feeds[30].field1},
-            {x: sensores.feeds[35].entry_id, y: sensores.feeds[35].field1},
-            {x: sensores.feeds[49].entry_id, y: sensores.feeds[49].field1}
+            {x: sensores.feeds[5].entry_id, y: parseFloat(sensores.feeds[5].field1)},
+            {x: sensores.feeds[10].entry_id, y: parseFloat(sensores.feeds[10].field1)},
+            {x: sensores.feeds[15].entry_id, y: parseFloat(sensores.feeds[15].field1)},
+            {x: sensores.feeds[20].entry_id, y: parseFloat(sensores.feeds[20].field1)},
+            {x: sensores.feeds[25].entry_id, y: parseFloat(sensores.feeds[25].field1)},
+            {x: sensores.feeds[30].entry_id, y: parseFloat(sensores.feeds[30].field1)},
+            {x: sensores.feeds[35].entry_id, y: parseFloat(sensores.feeds[35].field1)},
+            {x: sensores.feeds[40].entry_id, y: parseFloat(sensores.feeds[40].field1)},
+            {x: sensores.feeds[49].entry_id, y: parseFloat(sensores.feeds[49].field1)}
          ];        
 
 
 let graf3 =[
-            {x: sensores.feeds[0].entry_id, y: sensores.feeds[0].field3},
-            {x: sensores.feeds[5].entry_id, y: sensores.feeds[5].field3},
-            {x: sensores.feeds[10].entry_id, y: sensores.feeds[10].field3},
-            {x: sensores.feeds[15].entry_id, y: sensores.feeds[15].field3},
-            {x: sensores.feeds[20].entry_id, y: sensores.feeds[20].field3},
-            {x: sensores.feeds[25].entry_id, y: sensores.feeds[25].field3},
-            {x: sensores.feeds[30].entry_id, y: sensores.feeds[30].field3},
-            {x: sensores.feeds[35].entry_id, y: sensores.feeds[35].field3},
-            {x: sensores.feeds[49].entry_id, y: sensores.feeds[49].field3}
+            
+            {x: sensores.feeds[5].entry_id, y: parseFloat(sensores.feeds[5].field3)},
+            {x: sensores.feeds[10].entry_id, y: parseFloat(sensores.feeds[10].field3)},
+            {x: sensores.feeds[15].entry_id, y: parseFloat(sensores.feeds[15].field3)},
+            {x: sensores.feeds[20].entry_id, y: parseFloat(sensores.feeds[20].field3)},
+            {x: sensores.feeds[25].entry_id, y: parseFloat(sensores.feeds[25].field3)},
+            {x: sensores.feeds[30].entry_id, y: parseFloat(sensores.feeds[30].field3)},
+            {x: sensores.feeds[35].entry_id, y: parseFloat(sensores.feeds[35].field3)},
+            {x: sensores.feeds[40].entry_id, y: parseFloat(sensores.feeds[40].field3)},
+            {x: sensores.feeds[49].entry_id, y: parseFloat(sensores.feeds[49].field3)}
          ];
     JSC.Chart('chartTemp', {
    type: 'line spline',
