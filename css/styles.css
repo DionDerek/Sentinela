@@ -357,6 +357,25 @@ table, th, td {
     justify-content: center;
     align-content: center;
 }
+
+.paralax{
+    color: white;
+    padding-top: 3rem;
+    background-image: url("../map.png");
+    height: 500px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
+
+
+}
 /**********************************/
 /* 6. Status
 /**********************************/
