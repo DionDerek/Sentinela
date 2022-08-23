@@ -347,6 +347,7 @@ table, th, td {
     align-content: center;
     visibility: hidden;
     width: 100%;
+	z-index: 1;
     flex-direction: column;
 }
 
