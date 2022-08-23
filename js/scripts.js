@@ -9,6 +9,13 @@ var graf3=[]
   let minutes= d.getMinutes();
   diaSemana=["DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB","DOM", "SEG", "TER", "QUA", "QUI", "SEX", "SAB"];
 
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
 
 
 var myVar;
