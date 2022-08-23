@@ -117,12 +117,14 @@ function maini(){
    info = fazGet("http://dataservice.accuweather.com//forecasts/v1/daily/5day/44944?apikey=AtJ0WkGTEj2zvzvZTASsPTJXpAKJUlyH&language=pt-br&metric=true");
    info2 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=50");
    info4 = fazGet("https://api.thingspeak.com/channels/1481576/feeds.json?results=141");
+   info5 = fazGet("https://api.thingspeak.com/channels/1075478/feeds.json?results=2");
    info3 = fazGet("http://api.openweathermap.org/data/2.5/weather?q=araucaria&units=metric&appid=75ff6405fb7b261a5d04a3e35adab3ca");
 
    data = JSON.parse(info);
    sensores = JSON.parse(info2);
    tempo = JSON.parse(info3);
   sensoresTab =JSON.parse(info4);
+  sensorSolo = JSON.parse(info5);
 
 
 let chuvaDia = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
@@ -140,7 +142,9 @@ let tabela = document.getElementById("tabela");
 
    let temperatura = tempo.main.temp;
    let Temp = temperatura.toString().split(".");
-
+   let tempSolo = sensorSolo.feeds[1].field2.split(".");
+   let umidSolo = sensorSolo.feeds[1].field1;
+   let condSolo = sensorSolo.feeds[1].field3;
    let vl_temp = sensores.feeds[49].field2;
    let TempAR = vl_temp.toString().split(".");
 
@@ -158,6 +162,7 @@ let tabela = document.getElementById("tabela");
    let vl_iconpd1 = data.DailyForecasts[1].Day.Icon;
    let vl_iconpd2 = data.DailyForecasts[2].Day.Icon;
    let vl_iconpd3 = data.DailyForecasts[3].Day.Icon;
+
 
    let vl_tempMax = data.DailyForecasts[0].Temperature.Maximum.Value;
    let vl_pd1 = data.DailyForecasts[1].Date;
@@ -382,6 +387,9 @@ if (hour < 18) {
    document.getElementById("pd2").innerHTML = diaSemana[d.getDay()+2];
    document.getElementById("pd3").innerHTML = diaSemana[d.getDay()+3];
 
+   document.getElementById("txcondSolo").innerHTML = condSolo; 
+   document.getElementById("txtempSolo").innerHTML = tempSolo[0] + "ºC"; 
+
 
 
 
@@ -391,6 +399,27 @@ if (hour < 18) {
    imgpd2.src = "imagens/" + vl_iconpd2 + ".png";
    let imgpd3 = document.getElementById("icon_pd3");
    imgpd3.src = "imagens/" + vl_iconpd3 + ".png";
+
+   var chart = JSC.chart('chartDiv-solo-umid', {
+        box:{boxVisible:false},
+        defaultSeries_type: 'gaugeLinearHorizontal',
+        legend_visible: false,
+        title: {
+          visible:false,
+        },
+        xAxis: { spacingPercentage: 0.2 },
+        yAxis: { scale_range: [0, 100] },
+        defaultSeries_shape: { label: { visible:false} },
+        defaultPoint_label_visible: true,
+        series: [
+          {
+            type: 'column aqua',
+            name: 'Umidade do solo',
+            points: [['B', parseFloat(umidSolo)]]
+          },
+
+        ]
+      });
 
 
 
@@ -512,26 +541,7 @@ maini()
 //       });
 
 
-//        var chart = JSC.chart('chartDiv-solo-umid', {
-//         box:{boxVisible:false},
-//         defaultSeries_type: 'gaugeLinearHorizontal',
-//         legend_visible: false,
-//         title: {
-//           visible:false,
-//         },
-//         xAxis: { spacingPercentage: 0.2 },
-//         yAxis: { scale_range: [0, 100] },
-//         defaultSeries_shape: { label: { visible:false} },
-//         defaultPoint_label_visible: true,
-//         series: [
-//           {
-//             type: 'column aqua',
-//             name: 'Umidade do solo',
-//             points: [['B', 37]]
-//           },
-
-//         ]
-//       });
+//        
 
 //        JSC.Chart('chartDiv1', {
 //    type: 'line spline',
