@@ -31,32 +31,14 @@ function showPage() {
 
 function fechar() {
   document.getElementById("tab").style.visibility  = "hidden";
-  document.getElementById("chartTemp").style.visibility = "visible";
-  document.getElementById("chartUmid").style.visibility = "visible";
-  document.getElementById("chartPres").style.visibility = "visible";
-  document.getElementById("chartDiv1").style.visibility = "visible";
-  document.getElementById("chartDiv2").style.visibility = "visible";
-  document.getElementById("chartDiv3").style.visibility = "visible";
-  document.getElementById("chartDiv4").style.visibility = "visible";
-  document.getElementById("chartDiv-solo-umid").style.visibility = "visible";
-  document.getElementById("chartDiv-solo-uv").style.visibility = "visible";
-  document.getElementById("chartDiv-solo-sol").style.visibility = "visible";
+
 
  
 
 }
 function mostrarTab() {
   document.getElementById("tab").style.visibility = "visible";
-  document.getElementById("chartTemp").style.visibility = "hidden";
-  document.getElementById("chartUmid").style.visibility = "hidden";
-  document.getElementById("chartPres").style.visibility = "hidden";
-  document.getElementById("chartDiv1").style.visibility = "hidden";
-  document.getElementById("chartDiv2").style.visibility = "hidden";
-  document.getElementById("chartDiv3").style.visibility = "hidden";
-  document.getElementById("chartDiv4").style.visibility = "hidden";
-  document.getElementById("chartDiv-solo-umid").style.visibility = "hidden";
-  document.getElementById("chartDiv-solo-uv").style.visibility = "hidden";
-  document.getElementById("chartDiv-solo-sol").style.visibility = "hidden";
+
 
 
 }
