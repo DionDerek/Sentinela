@@ -97,7 +97,6 @@ function crialinha(sensores){
 function maini(){
   
   
-  window.alert("Relatório #01/2022 disponível para download no botão MENU");
   
   
   
